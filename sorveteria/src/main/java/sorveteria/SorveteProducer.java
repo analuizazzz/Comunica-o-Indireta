@@ -7,12 +7,11 @@ import com.rabbitmq.client.ConnectionFactory;
 
 public class SorveteProducer {
 
-    // Nome da fila
     private final static String QUEUE_NAME = "sorvete_fila";
 
     public static void main(String[] argv) throws Exception {
         ConnectionFactory factory = new ConnectionFactory();
-        factory.setUri("amqps://mmyuyypl:OIkTdCFjET0ui3wmgYy9zRIrEyM1nDyT@prawn.rmq.cloudamqp.com/mmyuyypl");  // Substitua pelo URI da sua instância no CloudAMQP
+        factory.setUri("amqps://mmyuyypl:OIkTdCFjET0ui3wmgYy9zRIrEyM1nDyT@prawn.rmq.cloudamqp.com/mmyuyypl"); 
 
         try (Connection connection = factory.newConnection(); Channel channel = connection.createChannel()) {
             channel.queueDeclare(QUEUE_NAME, false, false, false, null);
